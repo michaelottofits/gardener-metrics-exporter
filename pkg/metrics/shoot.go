@@ -161,7 +161,7 @@ func (c gardenMetricsCollector) collectShootMetrics(ch chan<- prometheus.Metric)
 
 			// Export a metric for each condition of the Shoot.
 			for _, condition := range shoot.Status.Conditions {
-				metric, err := prometheus.NewConstMetric(c.descs[metricGardenShootCondition], prometheus.GaugeValue, mapConditionStatus(condition.Status), shoot.Name, *projectName, string(condition.Type), lastOperation, purpose, strconv.FormatBool(isSeed), iaas)
+				metric, err := prometheus.NewConstMetric(c.descs[metricGardenShootCondition], prometheus.GaugeValue, mapConditionStatus(condition.Status), shoot.Name, *projectName, string(condition.Type), lastOperation, purpose, strconv.FormatBool(isSeed), iaas, string(shoot.Status.UID))
 				if err != nil {
 					ScrapeFailures.With(prometheus.Labels{"kind": "shoots"}).Inc()
 					continue

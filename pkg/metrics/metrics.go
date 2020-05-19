@@ -61,7 +61,7 @@ func getGardenMetricsDefinitions() map[string]*prometheus.Desc {
 
 		metricGardenSeedInfo: prometheus.NewDesc(metricGardenSeedInfo, "Information about a Seed.", []string{"name", "namespace", "iaas", "region", "visible", "protected"}, nil),
 
-		metricGardenShootCondition: prometheus.NewDesc(metricGardenShootCondition, "Condition state of a Shoot. Possible values: -1=Unknown|0=Unhealthy|1=Healthy|2=Progressing", []string{"name", "project", "condition", "operation", "purpose", "is_seed", "iaas"}, nil),
+		metricGardenShootCondition: prometheus.NewDesc(metricGardenShootCondition, "Condition state of a Shoot. Possible values: -1=Unknown|0=Unhealthy|1=Healthy|2=Progressing", []string{"name", "project", "condition", "operation", "purpose", "is_seed", "iaas", "uid"}, nil),
 
 		metricGardenShootCreation: prometheus.NewDesc(metricGardenShootCreation, "Timestamp of the shoot creation.", []string{"name", "project", "uid"}, nil),
 
